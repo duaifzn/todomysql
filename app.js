@@ -11,30 +11,10 @@ const db = require('./models')
 const Todo = db.Todo
 const User = db.User
 //route
+app.use('/user', require('./routes/user'))
 app.get('/', (req, res) => {
   res.render('index')
 })
-//login page
-app.get('/user/login', (req, res) => {
-  res.render('login')
-})
-//login post
-app.post('/user/login', (req, res) => {
-  res.send('login post')
-})
-//register page
-app.get('/user/register', (req, res) => {
-  res.render('register')
-})
-//register post
-app.post('/user/register', (req, res) => {
-  User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password
-  }).then(user => res.redirect('/'))
-})
-
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`)
 })

@@ -27,9 +27,8 @@ const Todo = db.Todo
 const User = db.User
 //route
 app.use('/user', require('./routes/user'))
-app.get('/', (req, res) => {
-  res.render('index')
-})
+app.use('/todo', require('./routes/todo'))
+app.use('/', require('./routes/home'))
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`)
 })

@@ -10,12 +10,10 @@ router.get('/login', (req, res) => {
   res.render('login')
 })
 //login post
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/user/login'
-  })(req, res, next)
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/user/login'
+}))
 //register page
 router.get('/register', (req, res) => {
   res.render('register')

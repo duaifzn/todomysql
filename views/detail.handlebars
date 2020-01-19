@@ -1,0 +1,15 @@
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-auto mr-auto">
+      {{todo.name}}
+    </div>
+    <div class="col-auto">
+      <a class="btn btn-warning" href="/todo/{{todo.id}}/edit">edit</a>
+      <form style="display:inline-block" action="/todo/{{this.id}}/delete?_method=DELETE" method="POST">
+        <button class="btn btn-danger" type="submit">delete</button>
+      </form>
+    </div>
+  </div>
+
+
+</li>

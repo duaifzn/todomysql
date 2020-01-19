@@ -1,1 +1,19 @@
-<h1>asd123123132112</h1>
+<a class="btn btn-success" href="/todo/new">add</a>
+<ul class="list-group">
+  {{#each todos}}
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-auto mr-auto">
+        {{this.name}}
+      </div>
+      <div class="col-auto">
+        <a class="btn btn-success" href="todo/{{this.id}}">detail</a>
+        <a class="btn btn-warning" href="/todo/{{this.id}}/edit">edit</a>
+        <form style="display:inline-block" action="/todo/{{this.id}}/delete?_method=DELETE" method="POST">
+          <button class="btn btn-danger" type="submit">delete</button>
+        </form>
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</ul>
